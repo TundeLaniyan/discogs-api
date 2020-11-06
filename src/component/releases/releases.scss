@@ -1,0 +1,28 @@
+.releases {
+    box-sizing: border-box;
+    width: 15rem;
+    height: 20rem;
+    margin: 1rem .5rem;
+    padding: .25rem;
+    background-color: gainsboro;
+    border-radius: 3px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__title {
+        font-size: 1.4rem;
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__image {
+        // justify-self: center;
+        background-image: url();
+        background-size: contain;
+        height: 10rem;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

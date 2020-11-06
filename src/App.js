@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Header from './component/header/header';
+import Boxes from './component/boxes/boxes';
 
 function App() {
+  const [results, setResults] = useState([]);
+  const [sort, setSort] = useState('title');
+
+  useEffect(() => {
+    const current = [...results];
+    current.sort((a ,b) => a[sort] > b[sort] ? 1 : -1);
+    setResults(current);
+  }, [sort]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header results={results} setResults={setResults} sort={sort} setSort={setSort}/>
+      <Boxes results={results}/>
     </div>
   );
 }
